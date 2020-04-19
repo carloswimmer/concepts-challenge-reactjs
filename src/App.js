@@ -14,7 +14,6 @@ function App() {
 
   async function handleAddRepository() {
     const repository = {
-      id: "123",
       url: "https://github.com/josepholiveira",
       title: "Desafio ReactJS",
       techs: ["React", "Node.js"]
@@ -28,7 +27,7 @@ function App() {
   async function handleRemoveRepository(id) {
     await api.delete(`repositories/${id}`)
 
-    const result = repositories.find(repo => repo.id !== id)
+    const result = repositories.filter(repo => repo.id !== id)
 
     setRepositories(result)
   }
